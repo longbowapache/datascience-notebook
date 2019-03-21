@@ -1,4 +1,5 @@
 FROM jupyter/datascience-notebook:latest
+MAINTAINER lele.cui@gmail.com
 
 ENV YaHei_FONT_DIR="/usr/share/fonts/truetype/ms" \
     matplotlib_FONT_DIR="/opt/conda/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf" \
