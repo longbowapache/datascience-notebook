@@ -2,7 +2,7 @@
 
 支持中文显示的 Jupyter Notebook
 
-## 镜像能力
+## 镜像说明
 
 本镜像基于 jupyter/datascience-notebook 制作，添加中文显示的能力。
 
