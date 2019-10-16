@@ -25,7 +25,7 @@ RUN echo "export PS1='[\A \u@\H \w]\\$ '" >> $HOME/.bashrc \
     && echo "alias ll='ls -lh --color'" >> $HOME/.bashrc
 
 # 修改时区
-# RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 升级自带安装工具
 RUN pip install --no-cache-dir --upgrade pip \
