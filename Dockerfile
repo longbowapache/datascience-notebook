@@ -20,6 +20,17 @@ RUN cp ${YaHei_FONT_DIR}/YaHeiConsolas.ttf ${matplotlib_FONT_DIR}/ \
     && sed -i "s/#\(axes.unicode_minus.*\): True\(.*\)/\1: False\2/" ${matplotlibrc} \
     && rm -rf ~/.cache/matplotlib/
 
+# 设置shell
+RUN echo "export PS1='[\A \u@\H \w]\\$ '" >> $HOME/.bashrc \
+    && echo "alias ll='ls -lh --color'" >> $HOME/.bashrc
+
+# 修改时区
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# 升级自带安装工具
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir --upgrade setuptools
+
 # 安装Python库
 RUN pip install --no-cache-dir \
     # 程序进度条库
@@ -40,5 +51,3 @@ RUN pip install --no-cache-dir \
     wordcloud==1.5.0 \
     plotly_express==0.1.3
 
-RUN echo "export PS1='[\A \u@\H \w]\\$ '" >> $HOME/.bashrc \
-    && echo "alias ll='ls -lh --color'" >> $HOME/.bashrc
