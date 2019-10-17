@@ -1,10 +1,6 @@
 FROM jupyter/datascience-notebook:latest
 MAINTAINER lele.cui@gmail.com
 
-# 修改时区
-# 不知道为什么改不了
-# RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 # 升级自带安装工具
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir --upgrade setuptools
@@ -38,6 +34,9 @@ RUN mkdir ${YaHei_FONT_DIR} \
     && cd ${YaHei_FONT_DIR} \
     && wget -nv https://github.com/Cuile/cn-datascience-notebook/raw/master/fonts/YaHeiConsolas.ttf \
     && fc-cache -f -v
+
+# 修改时区
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 USER $NB_UID
 RUN cp ${YaHei_FONT_DIR}/YaHeiConsolas.ttf ${matplotlib_FONT_DIR}/ \
