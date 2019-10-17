@@ -2,7 +2,8 @@ FROM jupyter/datascience-notebook:latest
 MAINTAINER lele.cui@gmail.com
 
 # 修改时区
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# 不知道为什么改不了
+# RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 升级自带安装工具
 RUN pip install --no-cache-dir --upgrade pip \
