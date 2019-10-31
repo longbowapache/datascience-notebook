@@ -36,7 +36,8 @@ RUN mkdir ${YaHei_FONT_DIR} \
     && fc-cache -f -v
 
 # 修改时区
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezome
 
 USER $NB_UID
 RUN cp ${YaHei_FONT_DIR}/YaHeiConsolas.ttf ${matplotlib_FONT_DIR}/ \
