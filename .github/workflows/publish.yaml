@@ -14,5 +14,4 @@ jobs:
       - name: Build the datascience-notebook Docker image
         run: |
               docker build . --tag ghcr.io/longbowapache/datascience-notebook:latest
-              docker run ghcr.io/longbowapache/datascience-notebook:latest
               docker push ghcr.io/longbowapache/datascience-notebook:latest
