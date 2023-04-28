@@ -25,8 +25,8 @@ RUN pip install --no-cache-dir \
     plotly_express
 
 ENV YaHei_FONT_DIR="/usr/share/fonts/truetype/ms" \
-    matplotlib_FONT_DIR="/opt/conda/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf" \
-    matplotlibrc="/opt/conda/lib/python3.9/site-packages/matplotlib/mpl-data/matplotlibrc"
+    matplotlib_FONT_DIR="/opt/conda/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf" \
+    matplotlibrc="/opt/conda/lib/python3.10/site-packages/matplotlib/mpl-data/matplotlibrc"
 
 USER root
 RUN mkdir ${YaHei_FONT_DIR} \
